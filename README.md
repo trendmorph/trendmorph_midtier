@@ -120,12 +120,13 @@ _No body required._
 #### Response (Success - 200)
 ```json
 {
-  "userProfile": {
-    "email": "user@example.com",
-    "name": "John Doe",
-    "createdAt": "2023-01-01T00:00:00.000Z",
-    // Additional profile fields as applicable
-  }
+    "userProfile": {
+        "email": "user@email.com",
+        "name": "User Full Name",
+        "contact": "1234567890",
+        "address": "1/2 User Address, India",
+        "role": "USER"
+    }
 }
 ```
 
@@ -329,14 +330,14 @@ Base URL: `/api/v1/cart`
 ```json
 [
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 6,
         "quantity": 4,
         "product_name": "Running Shoes",
         "product_price": "79.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 5,
         "quantity": 1,
         "product_name": "Classic T-Shirt",
@@ -357,14 +358,14 @@ Base URL: `/api/v1/cart`
 ```json
 [
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 6,
         "quantity": 4,
         "product_name": "Running Shoes",
         "product_price": "79.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 5,
         "quantity": 1,
         "product_name": "Classic T-Shirt",
@@ -400,19 +401,19 @@ Base URL: `/api/v1/wishlist`
 ```json
 [
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 2,
         "product_name": "Running Shoes",
         "product_price": "79.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 3,
         "product_name": "Classic T-Shirt",
         "product_price": "19.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 5,
         "product_name": "Classic T-Shirt",
         "product_price": "19.99"
@@ -432,25 +433,25 @@ Base URL: `/api/v1/wishlist`
 ```json
 [
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 2,
         "product_name": "Running Shoes",
         "product_price": "79.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 3,
         "product_name": "Classic T-Shirt",
         "product_price": "19.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 6,
         "product_name": "Running Shoes",
         "product_price": "79.99"
     },
     {
-        "user_email": "isomsuvra.95@gmail.com",
+        "user_email": "user@email.com",
         "product_id": 5,
         "product_name": "Classic T-Shirt",
         "product_price": "19.99"
