@@ -5,8 +5,8 @@ This API provides endpoints for managing products, orders, carts, and wishlists 
 
 ## Table of Contents
 
-- [Auth Routes](#product-routes)
-- [User Routes](#product-routes)
+- [Auth Routes](#auth-routes)
+- [User Routes](#user-routes)
 - [Product Routes](#product-routes)
 - [Order Routes](#order-routes)
 - [Cart Routes](#cart-routes)
@@ -192,15 +192,29 @@ Base URL: `/api/v1/products`
 #### Response (Success - 200)
 ```json
 {
-  "success": true,
-  "data": [
-    {
-      "id": 1,
-      "name": "Product 1",
-      "price": 19.99
-    }
-    // Additional products
-  ]
+    "success": true,
+    "data": [
+        {
+            "id": 2,
+            "name": "Running Shoes",
+            "category": "Footwear",
+            "sub_category": "Sports Shoes",
+            "price": "79.99",
+            "quantity": 80,
+            "available_sizes": [
+                "8",
+                "9",
+                "10",
+                "11"
+            ],
+            "available_colors": [
+                "White",
+                "Gray",
+                "Blue"
+            ]
+        },
+        // Additional products
+    ]
 }
 ```
 
@@ -215,12 +229,26 @@ Base URL: `/api/v1/products`
 #### Response (Success - 200)
 ```json
 {
-  "success": true,
-  "data": {
-    "id": 1,
-    "name": "Product 1",
-    "price": 19.99
-  }
+    "success": true,
+    "data": {
+        "id": 5,
+        "name": "Classic T-Shirt",
+        "category": "Apparel",
+        "sub_category": "T-Shirts",
+        "price": "19.99",
+        "quantity": 150,
+        "available_sizes": [
+            "S",
+            "M",
+            "L",
+            "XL"
+        ],
+        "available_colors": [
+            "Red",
+            "Blue",
+            "Black"
+        ]
+    }
 }
 ```
 
@@ -299,17 +327,22 @@ Base URL: `/api/v1/cart`
 
 #### Response (Success - 200)
 ```json
-{
-  "items": [
+[
     {
-      "productId": "123",
-      "quantity": 2,
-      "price": 19.99
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 6,
+        "quantity": 4,
+        "product_name": "Running Shoes",
+        "product_price": "79.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 5,
+        "quantity": 1,
+        "product_name": "Classic T-Shirt",
+        "product_price": "19.99"
     }
-    // Additional items
-  ],
-  "totalPrice": 69.97
-}
+]
 ```
 
 ---
@@ -320,6 +353,25 @@ Base URL: `/api/v1/cart`
 - **Method**: `POST`
 - **Authentication**: Required
 - **Description**: Adds a specified product with a given quantity to the authenticated user's cart.
+- #### Response (Success - 200) - Return current cart items
+```json
+[
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 6,
+        "quantity": 4,
+        "product_name": "Running Shoes",
+        "product_price": "79.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 5,
+        "quantity": 1,
+        "product_name": "Classic T-Shirt",
+        "product_price": "19.99"
+    }
+]
+```
 
 ---
 
@@ -329,6 +381,7 @@ Base URL: `/api/v1/cart`
 - **Method**: `DELETE`
 - **Authentication**: Required
 - **Description**: Removes a specified product from the authenticated user's cart.
+- Response (Success - 204) - Return No content
 
 ---
 
@@ -345,16 +398,26 @@ Base URL: `/api/v1/wishlist`
 
 #### Response (Success - 200)
 ```json
-{
-  "wishlist": [
+[
     {
-      "productId": "123",
-      "name": "Product 1",
-      "price": 19.99
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 2,
+        "product_name": "Running Shoes",
+        "product_price": "79.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 3,
+        "product_name": "Classic T-Shirt",
+        "product_price": "19.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 5,
+        "product_name": "Classic T-Shirt",
+        "product_price": "19.99"
     }
-    // Additional wishlist items
-  ]
-}
+]
 ```
 
 ---
@@ -365,6 +428,35 @@ Base URL: `/api/v1/wishlist`
 - **Method**: `POST`
 - **Authentication**: Required
 - **Description**: Adds a specified product to the authenticated user's wishlist.
+- #### Response (Success - 200) - Returns current wishlist
+```json
+[
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 2,
+        "product_name": "Running Shoes",
+        "product_price": "79.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 3,
+        "product_name": "Classic T-Shirt",
+        "product_price": "19.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 6,
+        "product_name": "Running Shoes",
+        "product_price": "79.99"
+    },
+    {
+        "user_email": "isomsuvra.95@gmail.com",
+        "product_id": 5,
+        "product_name": "Classic T-Shirt",
+        "product_price": "19.99"
+    }
+]
+```
 
 ---
 
@@ -374,6 +466,7 @@ Base URL: `/api/v1/wishlist`
 - **Method**: `DELETE`
 - **Authentication**: Required
 - **Description**: Removes a specified product from the authenticated user's wishlist.
+- **Response (Success - 204) - Return No content
 
 ---
 
