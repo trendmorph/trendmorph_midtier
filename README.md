@@ -354,6 +354,17 @@ Base URL: `/api/v1/cart`
 - **Method**: `POST`
 - **Authentication**: Required
 - **Description**: Adds a specified product with a given quantity to the authenticated user's cart.
+
+#### Request
+- **Headers**: `Authorization: Bearer <token>`
+- **Body**:
+  ```json
+  {
+    "productId": 3,
+    "quantity": 2
+  }
+  ```
+
 - #### Response (Success - 200) - Return current cart items
 ```json
 [
@@ -429,6 +440,16 @@ Base URL: `/api/v1/wishlist`
 - **Method**: `POST`
 - **Authentication**: Required
 - **Description**: Adds a specified product to the authenticated user's wishlist.
+
+#### Request
+- **Headers**: `Authorization: Bearer <token>`
+- **Body**:
+  ```json
+  {
+    "productId": 3
+  }
+  ```
+
 - #### Response (Success - 200) - Returns current wishlist
 ```json
 [
